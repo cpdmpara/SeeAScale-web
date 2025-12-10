@@ -1,4 +1,4 @@
-import MainPage from "./pages/MainPage.jsx";
+import MainPage from "@pages/MainPage.jsx";
 
 function App() {
     return (
