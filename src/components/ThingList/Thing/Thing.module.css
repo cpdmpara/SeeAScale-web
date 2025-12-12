@@ -1,0 +1,19 @@
+.thingArticle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.thingImage {
+    display: block;
+    width: 400px;
+    height: 400px;
+}
+
+.thingParag {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
