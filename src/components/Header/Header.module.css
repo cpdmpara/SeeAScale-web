@@ -3,7 +3,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 12px 32px;
-    box-shadow: 0 2px 24px 0 rgba(0, 0, 0, 0.10);
+    border-bottom: 1px solid #B2B2B2;
 }
 
 .logoWraper {
