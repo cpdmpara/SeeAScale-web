@@ -1,0 +1,31 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 32px;
+    border-bottom: 1px solid #B2B2B2;
+}
+
+.logo {
+    padding: 4px 16px;
+    border-radius: 16px;
+    border: 1px solid #B2B2B2;
+    transition: filter 0.15s ease;
+}
+
+.logo:hover {
+    filter: brightness(0.9);
+}
+
+.account {
+    padding: 16px 24px;
+    border-radius: 16px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border: 1px solid #B2B2B2;
+    transition: filter 0.15s ease;
+}
+
+.account:hover {
+    filter: brightness(0.9);
+}
