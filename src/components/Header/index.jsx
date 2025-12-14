@@ -1,12 +1,11 @@
-import VerticalLogo from "@assets/logos/VerticalLogo.svg?react"
-import styles from "@components/Header/Header.module.css"
+import Logo from "@assets/VerticalLogo.svg?react"
 
 function Header() {
     
     return (
         <header className={styles.header}>
             <a className={styles.logoWraper} href="/">
-                <VerticalLogo />
+                <Logo />
             </a>
             <button className={styles.accountWrapper} href="/login">
                 {"로그인"}
