@@ -18,6 +18,7 @@ export default function LogIn() {
     const passwordInputHandler = (e) => {
         setPasswordValue(e.target.value);
     }
+    
     const submitForm = (e) => {
         e.preventDefault();
         setIsFetching(true);

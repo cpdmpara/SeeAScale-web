@@ -2,7 +2,7 @@ import { useState, useCallback } from "react";
 import api from "@api/axios";
 
 export default function useUser() {
-    const [name, setName] = useState();
+    const [name, setName] = useState(null);
 
     const logIn = useCallback(async (email, password) => {
         const payload = { email, password };
