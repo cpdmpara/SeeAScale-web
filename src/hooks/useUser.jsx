@@ -16,5 +16,28 @@ export default function useUser(){
     }
   }, []);
 
-  return {username, fetchMyName}
+  const fetchLogIn = useCallback(async (email, password) => {
+    try {
+      const payload = {
+        email: email,
+        password: password
+      }
+      const response = await api.post('/account/login', payload);
+      setUsername(response.data.name);
+      return {
+        status: response.status,
+        name: response.data.name
+      }
+    }
+    catch (e) {
+      setUsername(null);
+      console.log(e);
+      return {
+        status: e.response.status,
+        detail: e.response.data?.detail
+      };
+    }
+  }, []);
+
+  return {username, fetchLogIn, fetchMyName}
 }

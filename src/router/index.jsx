@@ -1,11 +1,17 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Home from '@pages/Home';
+import { LogIn } from '@components/Modal';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Home />,
-    children: []
+    children: [
+      {
+        path: '/login',
+        element: <LogIn />
+      }
+    ]
   }
 ]);
 
