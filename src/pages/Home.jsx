@@ -3,11 +3,11 @@ import useUser from '@hooks/useUser';
 import Header from '@components/Header';
 
 function Home() {
-  const {username, fetchMyName, fetchLogIn, fetchLogOut} = useUser();
+  const {username, fetchMyName, fetchLogIn, fetchLogOut, fetchPreregister} = useUser();
   
   return (
     <>
-      <Outlet context={{fetchLogIn, fetchLogOut}} />
+      <Outlet context={{fetchLogIn, fetchLogOut, fetchPreregister}} />
       <Header props={{username, fetchMyName}} />
     </>
   );

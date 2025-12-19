@@ -7,10 +7,11 @@ export default function LogIn() {
   const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
   const passwordRegex = /^[A-Za-z0-9!@#$_.?-]{8,}$/;
   const navigate = useNavigate();
+
   const {fetchLogIn} = useOutletContext();
   const [isFetching, setIsFetching] = useState(false);
-  const [emailValue, setEmailValue] = useState(null);
-  const [passwordValue, setPasswordValue] = useState(null);
+  const [emailValue, setEmailValue] = useState('');
+  const [passwordValue, setPasswordValue] = useState('');
   const [emailInput, passwordInput] = [useRef(), useRef()];
   
   const emailInputHandler = (e) => setEmailValue(e.target.value);
@@ -29,8 +30,8 @@ export default function LogIn() {
     fetchLogIn(emailValue, passwordValue)
     .then((response) => {
       const status = response.status;
-      const name = response?.name;
-      const detail = response?.detail;
+      const name = response.name;
+      const detail = response.detail;
       if (status === 200) {
         alert(`환영합니다, ${name}님`);
         navigate('/');
@@ -67,10 +68,16 @@ export default function LogIn() {
           type="password" value={passwordValue ?? ''} onChange={passwordInputHandler} placeholder="비밀번호"
           required 
         />
-        <button className={
-          `${sty.submitButton} ${(emailValue || passwordValue) && (isEmailValid() && isPasswordValid() ? sty.validsubmitButton : sty.invalidsubmitButton)}`
-        } 
-        type="submit">
+        <button
+          className={
+            `${sty.submitButton} ${
+              (emailValue || passwordValue) && (
+                isEmailValid() && isPasswordValid() ? sty.validsubmitButton : sty.invalidsubmitButton
+              )
+            }`
+          } 
+          type="submit"
+        >
           {isFetching ? "로그인 중..." : "로그인"}
         </button>
         <Link className={sty.signUpButton} to='/preregister'>회원가입</Link>

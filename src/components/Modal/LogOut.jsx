@@ -1,9 +1,9 @@
-import { useState, useRef } from 'react';
-import { Link, useNavigate, useOutletContext } from 'react-router-dom';
+import { useState } from 'react';
+import { useNavigate, useOutletContext } from 'react-router-dom';
 import Modal from '@components/Modal';
 import sty from '@styles/LogOut.module.css';
 
-export default function LogIn() {
+export default function LogOut() {
   const navigate = useNavigate();
   const {fetchLogOut} = useOutletContext();
   const [isFetching, setIsFetching] = useState(false);
