@@ -4,15 +4,23 @@ import api from '@api/axios';
 export default function useUser(){
   const [username, setUsername] = useState(null);
 
+  const returnMacro = (response) => {
+    return {
+      status: response.status,
+      name: response.data?.name,
+      detail: response.data?.detail
+    }
+  }
+
   const fetchMyName = useCallback(async () => {
     try {
       const response = await api.get('/account/my-name');
       setUsername(response.data.name);
-      return response.data.name;
+      return returnMacro(response);
     }
     catch (e) {
       setUsername(null);
-      return null;
+      return returnMacro(e.response);
     }
   }, []);
 
@@ -24,18 +32,12 @@ export default function useUser(){
       }
       const response = await api.post('/account/login', payload);
       setUsername(response.data.name);
-      return {
-        status: response.status,
-        name: response.data.name
-      }
+      return returnMacro(response)
     }
     catch (e) {
       setUsername(null);
       console.log(e);
-      return {
-        status: e.response.status,
-        detail: e.response.data?.detail
-      };
+      return returnMacro(e.response)
     }
   }, []);
 

@@ -7,7 +7,7 @@ export default function Header({props: {username, fetchMyName}}) {
   const [loading, setLoading] = useState(true);
 
   useEffect(()=>{
-    fetchMyName().then(()=>setLoading(false));
+    fetchMyName().then(() => setLoading(false));
   }, [])
   
   return (
