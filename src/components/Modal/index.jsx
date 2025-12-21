@@ -27,8 +27,10 @@ import LogInComponent from '@components/Modal/LogIn';
 import LogOutComponent from '@components/Modal/LogOut';
 import PreregisterComponent from '@components/Modal/Preregister';
 import SignUpComponent from '@components/Modal/SignUp';
+import ThingComponent from '@components/Modal/Thing';
 
 export const LogIn = LogInComponent;
 export const LogOut = LogOutComponent;
 export const Preregister = PreregisterComponent;
 export const SignUp = SignUpComponent;
+export const Thing = ThingComponent;

@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import ArrowSymbol from '@assets/ArrowSymbol.svg?react'
 import useThing from '@hooks/useThing';
 import css from '@styles/Content.module.css';
@@ -23,7 +24,7 @@ export default () => {
           <ArrowSymbol />
         </button>
         <div className={css.thingList}>
-          {data.slice(current.item, current.item + 3).map((v, i)=>(<Thing key={i} thing={v} root={data[current.item + 2]} />))}
+          {data.slice(current.item, current.item + 3).map((v, i)=>(<Thing key={i} thing={v} root={data[current.item + 2]}/>))}
         </div>
         <button className={css.button} onClick={moveRight}>
           <ArrowSymbol style={{transform: 'scaleX(-1)'}} />
@@ -34,14 +35,15 @@ export default () => {
   )
 }
 
-const Thing = ({thing, root}) => {
+const Thing = ({thing, root, fetch}) => {
   const grad = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   const scale = (10 ** thing.prefix * Number(thing.quantity)) / (10 ** root.prefix * Number(root.quantity));
-  console.log(scale);
 
   return (
     <div className={css.thing}>
-      <img className={css.thingImage} src={`${API_SERVER_URL}/thing/${thing.thingId}/image`} alt='' style={{transform: `scale(${scale})`}} />
+      <Link to={`/thing/${thing.thingId}`}>
+        <img className={css.thingImage} src={`${API_SERVER_URL}/thing/${thing.thingId}/image`} alt='' style={{transform: `scale(${scale})`}} />
+      </Link>
       <h3>{thing.title}</h3>
       <p>{`${thing.quantity} ${prefixs[thing.prefix + 10].prefix}m`}</p>
       <div className={css.grads}>

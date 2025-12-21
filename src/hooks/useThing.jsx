@@ -56,5 +56,16 @@ export default () => {
     }
   }
 
-  return {data, current, init, moveRight, moveLeft};
+  const fetchThing = async (thingId) => {
+    try {
+      const response = await api.get(`/thing/${thingId}`);
+      console.log(response);
+      return response.data;
+    }
+    catch (e) {
+      console.log(e);
+    }
+  }
+
+  return {data, current, init, moveRight, moveLeft, fetchThing};
 }
